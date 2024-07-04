@@ -5,7 +5,7 @@ export default {
   routes: [
     {
       path: frontendURL('accounts/:accountId/kanban'),
-      component: CrmWrapper, 
+      component: CrmWrapper,
       props: {},
       children: [
         {

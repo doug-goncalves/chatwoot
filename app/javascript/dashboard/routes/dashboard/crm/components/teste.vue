@@ -34,8 +34,6 @@ export default {
   },
   data() {
     return {
-      //defaultUrl: 'https://crm.inovechat.com/apps/chatwoots/embedding?token=ccb8c849011c909c905a',
-      //defaultUrl: this.dashboardApps.find(dashboardApp => dashboardApp.title === "crm")?.content[0]?.url || '',
 
       config: [{ type: 'frame', url: 'example.com' }],
       eventData: this.formatEventData(),
@@ -62,7 +60,6 @@ export default {
     },
     defaultUrl() {
       const dashboardApp = this.dashboardApps.find(dashboardApp => dashboardApp.title === "crm");
-      console.log("TESTE2: ",dashboardApp)
       return dashboardApp?.content[0]?.url || '';
     },
   },
@@ -75,12 +72,9 @@ export default {
   },
   mounted() {
    
-    //console.log("TESTANDO", this.defaultUrl);
 
     console.log(this.dashboardApps)
-    // const abc = this.dashboardApps.map(dashboardApp => ({
-    //   name: dashboardApp.title,
-    // }))
+
 
     const abc = this.dashboardApps
   .filter(dashboardApp => dashboardApp.title === "crm")
@@ -106,7 +100,6 @@ git
         event: 'appContext',
         data: {
           contact: { id: 1 },
-          //currentAgent: { id: 100, name: 'Douglas', email: 'doug.fsg@gmail.com' },
         },
       };
     },
@@ -122,11 +115,11 @@ git
 
         frameElement.onload = () => {
           if (this.redirected) {
-            //frameElement.contentWindow.location.href = 'https://crm.inovechat.com/';
+            
             const urlParts = this.defaultUrl.split('apps'); // Divide a URL em duas partes: antes e depois de 'apps'
         frameElement.contentWindow.location.href = urlParts[0];
             setTimeout(() => {
-              //frameElement.contentWindow.location.href = 'https://crm.inovechat.com/';
+              
               const urlParts = this.defaultUrl.split('apps'); // Divide a URL em duas partes: antes e depois de 'apps'
         frameElement.contentWindow.location.href = urlParts[0];
             }, 1000);
@@ -148,7 +141,7 @@ git
 .home-page--list,
 .home-page--list iframe {
   height: 100%;
-  width: 100%; 
+  width: 100%;
 }
 
 .home-page--list iframe {
